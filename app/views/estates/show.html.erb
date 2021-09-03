@@ -1,29 +1,51 @@
 <p id="notice"><%= notice %></p>
-
+<div class="contener">
 <p>
-  <strong>Name:</strong>
+  <strong>物件名:</strong>
   <%= @estate.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @estate.price %>
+  <strong>賃料:</strong>
+  <%= @estate.price %><strong>円</strong>
 </p>
 
 <p>
-  <strong>Adress:</strong>
+  <strong>住所:</strong>
   <%= @estate.adress %>
 </p>
 
 <p>
-  <strong>Year:</strong>
-  <%= @estate.year %>
+  <strong>築年数:</strong>
+  <%= @estate.year %><strong>年</strong>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>備考:</strong>
   <%= @estate.content %>
 </p>
+</div>
+<br>
+<hr>
+<div>
 
-<%= link_to 'Edit', edit_estate_path(@estate) %> |
-<%= link_to 'Back', estates_path %>
+<% n = 0 %>
+  <% @stations.each do |station| %>
+    <h3>最寄駅<%= n +=1 %></h3>
+    <p>
+      <strong>路線名:</strong><%= station.route %>
+    </p>
+    <p>
+      <strong>駅名:</strong><%= station.station_name %>
+    </p>
+    <p>
+      <strong>徒歩分数:</strong><%= "#{station.walk}分" %>
+    </p>
+    <br>
+  <% end %>
+</div>
+<br>
+
+
+<%= link_to '編集', edit_estate_path(@estate) %> |
+<%= link_to '一覧に戻る', estates_path %>

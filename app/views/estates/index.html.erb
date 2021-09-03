@@ -18,9 +18,9 @@
     <% @estates.each do |estate| %>
       <tr>
         <td><%= estate.name %></td>
-        <td><%= estate.price %></td>
+        <td><%= estate.price %><strong>円</strong></td>
         <td><%= estate.adress %></td>
-        <td><%= estate.year %></td>
+        <td><%= estate.year %><strong>年</strong></td>
         <td><%= estate.content %></td>
         <td><%= link_to '詳細', estate %></td>
         <td><%= link_to '編集', edit_estate_path(estate) %></td>
