@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @estate.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @estate.price %>
+</p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= @estate.adress %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @estate.year %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @estate.content %>
+</p>
+
+<%= link_to 'Edit', edit_estate_path(@estate) %> |
+<%= link_to 'Back', estates_path %>
