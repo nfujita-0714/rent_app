@@ -1,0 +1,66 @@
+<%= form_with(model: estate, local: true) do |form| %>
+  <% if estate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estate.errors.count, "error") %> prohibited this estate from being saved:</h2>
+
+      <ul>
+      <% estate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :物件名 %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :賃料 %>
+    <%= form.number_field :price %>円
+  </div>
+
+  <div class="field">
+    <%= form.label :住所 %>
+    <%= form.text_area :adress %>
+  </div>
+
+  <div class="field">
+    <%= form.label :築年数 %>
+    <%= form.number_field :year %>年
+  </div>
+
+  <div class="field">
+    <%= form.label :備考 %>
+    <%= form.text_area :content %>
+  </div>
+
+  <hr>
+
+  <div class="stations_field">
+    <% n = 0 %>
+    <%= form.fields_for :stations do |station| %>
+    最寄駅<% n + 1 %>
+      <div class="field">
+        <%= station.label "路線名" %>
+        <%= station.text_field :route %>
+      </div>
+
+    <div class="field">
+      <%= station.label "駅名" %>
+      <%= station.text_field :station_name %>
+    </div>
+
+    <div class="field">
+      <%= station.label "徒歩分数" %>
+      <%= station.number_field :walk %>分
+    </div>
+    <br>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録する" %>
+  </div>
+<% end %>
